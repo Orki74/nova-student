@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NOVA Student — One Tablet. Every Subject. Endless Possibilities.</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{--bg:#060a22;--fg:#eef2ff;--mut:#a5b0e0;--alt:#f4f6ff;--altfg:#0a1030;--amut:#43507f;--tg:#4338ca;--acard:#fff;--abd:rgba(10,16,48,.12);--glass:rgba(255,255,255,.07);--bd:rgba(255,255,255,.15);--b:#3b82f6;--c:#22d3ee;--v:#8b5cf6;--p:#f472b6;--grad:linear-gradient(120deg,#3b82f6,#8b5cf6 55%,#f472b6);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--alt:#0c1340;--altfg:#eef2ff;--amut:#a5b0e0;--tg:#67e8f9;--acard:rgba(255,255,255,.06);--abd:rgba(255,255,255,.15)}}
+:root[data-theme=dark]{--alt:#0c1340;--altfg:#eef2ff;--amut:#a5b0e0;--tg:#67e8f9;--acard:rgba(255,255,255,.06);--abd:rgba(255,255,255,.15)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nh,56px))}
+body{background:var(--bg);color:var(--fg);font:400 clamp(16px,1.25vw,19px)/1.6 Inter,"Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+button,select,input{font:inherit;color:inherit}
+[hidden]{display:none!important}
+h1,h2,h3,h4,h5,.lg{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
+h1{font-size:clamp(2.6rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.03em}
+h2{font-size:clamp(2rem,4.6vw,3.7rem);line-height:1.08;letter-spacing:-.02em;margin:.8rem 0 1rem}
+h3{font-size:clamp(1.5rem,2.8vw,2.3rem);line-height:1.15;margin:.6rem 0}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:760px;margin:0 auto;color:var(--mut);font-size:clamp(1.05rem,1.5vw,1.3rem)}
+.alt{background:var(--alt);color:var(--altfg)}.alt p,.alt .sub{color:var(--amut)}
+.tag{display:inline-block;padding:.35em 1em;border-radius:99px;background:var(--glass);border:1px solid var(--bd);color:#67e8f9;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem}.alt .tag{color:var(--tg)}
+.sec{padding:clamp(4rem,9vw,8rem) 5vw;position:relative}.wrap{max-width:1180px;margin:auto}.c{text-align:center}
+.btn{border:0;border-radius:99px;padding:.95em 1.7em;font-weight:700;color:#fff;background:var(--grad);cursor:pointer;box-shadow:0 10px 30px -8px var(--v),0 0 0 1px rgba(255,255,255,.2) inset;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 18px 40px -8px var(--b)}.btn.gh{background:var(--glass);box-shadow:0 0 0 1px var(--bd) inset;backdrop-filter:blur(10px)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;gap:1.2rem;padding:.7rem 4vw;background:rgba(6,10,34,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+nav .lg{display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:.16em;color:#fff;text-decoration:none}.lgi{width:22px;height:22px;border-radius:7px;background:var(--grad);box-shadow:0 0 18px var(--v)}
+.ln{display:flex;gap:1.5rem;margin:0 auto;overflow-x:auto;white-space:nowrap}.ln a{color:var(--mut);text-decoration:none;font-weight:600;font-size:.92rem;transition:color .2s}.ln a:hover{color:#fff}
+nav .btn{padding:.6em 1.2em;font-size:.9rem}
+#in{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#23318f,#060a22 68%);transition:opacity .9s,visibility 0s .9s;cursor:pointer}
+#in b{font-family:"Space Grotesk",system-ui,sans-serif;font-size:clamp(2rem,8vw,6rem);font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;animation:zi 1.8s ease both}
+#in:after{content:"";position:absolute;top:58%;width:0;height:3px;background:var(--grad);box-shadow:0 0 30px var(--c);animation:ln 1.6s .3s forwards}
+body.ready #in{opacity:0;visibility:hidden}
+.hero{position:relative;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;gap:2rem;align-items:center;min-height:calc(100svh - var(--nh,56px));padding:3rem 5vw}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:dr 14s ease-in-out infinite alternate}.hc,.stage{position:relative;z-index:1}
+.sp{position:absolute;width:3px;height:3px;border-radius:50%;background:#9ec5ff;box-shadow:0 0 8px #67e8f9;opacity:0;animation:tw var(--t,4s) ease-in-out infinite}
+.hero .e{opacity:0}body.ready .hero .e{animation:up 1s var(--d,0s) both cubic-bezier(.2,.8,.2,1)}
+.stage{perspective:1400px;display:grid;place-items:center;padding:2rem 0}
+.rot{position:relative;width:min(620px,92%);transform-style:preserve-3d;transform:rotateY(calc(var(--ry,-10)*1deg)) rotateX(calc(var(--rx,5)*1deg));transition:transform .2s ease-out}
+.fl{animation:fl 6s ease-in-out infinite}.rot .dev{width:100%}.hero .dev{opacity:0}body.ready .hero .dev{animation:dIn 1.8s .5s both cubic-bezier(.2,.8,.2,1)}
+.dev{position:relative;width:min(600px,94%);aspect-ratio:4/3;padding:2.2%;border-radius:30px;background:linear-gradient(145deg,#3a4690,#0b0f33 60%);box-shadow:0 50px 100px -30px #3b82f6,0 0 0 2px #4b58b0 inset,0 0 90px rgba(139,92,246,.4)}
+.dev:after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,rgba(255,255,255,.2),transparent 35%);pointer-events:none}
+.scr{position:relative;height:100%;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,#0f1a55,#1e1170 55%,#40195f);color:#fff}
+.hs{padding:3.5% 4%;display:flex;flex-direction:column;gap:3%}.sb{display:flex;justify-content:space-between;font-size:.62rem;opacity:.8}
+.hg{display:grid;grid-template-columns:1.1fr 1fr;gap:4%;flex:1;min-height:0}.hg h5{font-size:clamp(.8rem,1.6vw,1.1rem)}.hg small{font-size:.6rem;opacity:.7}
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:6%;margin:6% 0}.ig i{aspect-ratio:1;display:grid;place-items:center;border-radius:22%;background:linear-gradient(135deg,var(--a),#0b1040);font-style:normal;font-size:clamp(.9rem,2.4vw,1.7rem);box-shadow:0 6px 16px -4px var(--a)}
+.fo{display:flex;gap:4%;font-size:.6rem}.fo span{padding:.25em .7em;border-radius:99px;background:var(--a)}
+.hr{display:flex;flex-direction:column;gap:6%}.hr .paper{flex:1;padding:.3rem}.td{width:100%;border-radius:10px;background:rgba(5,8,30,.5)}
+.fw{position:absolute;padding:.6rem .8rem;border-radius:16px;background:var(--glass);border:1px solid var(--bd);backdrop-filter:blur(14px);box-shadow:0 20px 40px -12px rgba(0,0,0,.6);animation:fl var(--t,7s) ease-in-out infinite;text-align:center;font-size:.7rem}
+.pen{position:absolute;font-size:16px;width:.9em;height:16em;border-radius:.45em .45em .1em .1em;background:linear-gradient(90deg,#fff,#9db4ff 45%,#3b4aa6);box-shadow:0 20px 30px -8px rgba(0,0,0,.6),0 0 24px rgba(139,92,246,.6);transform:rotate(28deg);animation:pn 6s ease-in-out infinite;z-index:3}
+.pen:before{content:"";position:absolute;top:14%;left:0;right:0;height:.7em;background:var(--c);box-shadow:0 0 14px var(--c)}.pen:after{content:"";position:absolute;top:100%;left:0;border:.45em solid transparent;border-top:1em solid #dfe6ff;border-bottom:0}
+.rot .pen{right:-3%;bottom:-8%}
+.ba{height:260vh;position:relative}
+.st{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--nh,56px));height:calc(100svh - env(safe-area-inset-top,0px) - var(--nh,56px));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 5vw;--p:0}
+.st h2{font-size:clamp(1.8rem,4vw,3.2rem);margin:.5rem 0}.st .sub{font-size:clamp(.9rem,1.3vw,1.15rem)}
+.bx{position:relative;width:min(780px,94vw);height:min(42vh,370px);margin-top:2rem}
+.sup{position:absolute;left:50%;top:50%;font-size:clamp(2.2rem,6vw,4rem);will-change:transform,opacity;filter:drop-shadow(0 12px 14px rgba(0,0,0,.5))}
+.lab{position:absolute;top:-1.6rem;left:0;right:0;font-weight:700;letter-spacing:.18em;font-size:.85rem}.lab.b{color:#fb7185;opacity:calc((.55 - var(--p))*8)}.lab.a{color:#67e8f9;opacity:calc((var(--p) - .6)*8)}
+.tb{position:absolute;left:50%;top:50%;width:min(62%,400px);transform:translate(-50%,-50%) scale(calc(.5 + var(--p)*.5));opacity:calc((var(--p) - .25)*2.5)}
+.tb .dev{width:100%}.tb .ig{margin:0;padding:8%;height:100%;align-content:center}.tb .ig i{font-size:clamp(1rem,3.2vw,2rem);opacity:calc((var(--p) - .62 - var(--i)*.04)*10)}.tb .pen{font-size:9px;right:-12%;bottom:-6%}
+.bn{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin:5rem 0}.bn:nth-child(even) .tx{order:2}
+.num{display:block;font:700 clamp(3rem,7vw,6rem)/1 "Space Grotesk",sans-serif}.bn p{margin-top:1rem;font-size:clamp(1.05rem,1.5vw,1.28rem)}
+.v{padding:1.3rem;border-radius:26px;background:linear-gradient(160deg,#101a58,#1b1170 60%,#2a1160);color:#eef2ff;border:1px solid rgba(255,255,255,.15);box-shadow:0 30px 70px -25px #3b3fe0}
+.cap{display:block;color:#a5b0e0;font-size:.75rem;margin-top:.8rem}
+.g4{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.mx{position:relative;height:125px;text-align:center;border-radius:16px;background:var(--glass);border:1px solid var(--bd)}
+.mx small{position:absolute;bottom:.5rem;left:0;right:0;color:#cfe0ff;font-size:.8rem}.mx i,.mx b{position:absolute;left:0;right:0;top:.9rem;font-size:2.6rem;font-style:normal;font-weight:400;animation:xf 4s infinite}.mx b{animation-delay:-2s}
+.sr{display:flex;justify-content:space-around;margin-bottom:1.2rem}.av{position:relative;font-size:2.3rem}.av em{position:absolute;right:-.3em;bottom:-.1em;font-size:1.1rem;font-style:normal;opacity:0;transform:translateY(-30px) scale(.4);transition:.5s calc(var(--k)*.15s + .3s)}.v.in .av em{opacity:1;transform:none}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;font-size:.8rem}.cmp small{display:block;margin-top:.4rem;color:#cfe0ff}
+.col{display:flex;flex-direction:column-reverse;gap:4px;height:150px}.col i{height:26px;border-radius:6px;background:linear-gradient(90deg,#fb7185,#f472b6);transform:scaleY(0);transform-origin:bottom;transition:transform .5s calc(var(--k)*.18s + .4s)}
+.col i.s{background:var(--grad);height:50px}.col i.d{background:none;border:2px dashed #67e8f9;height:26px}.v.in .col i{transform:none}
+.dev.sm{width:100%;border-radius:20px}.scenes{position:relative}.sn{position:absolute;inset:0;animation:sc 9s infinite}.sn:nth-child(2){animation-delay:-6s}.sn:nth-child(3){animation-delay:-3s}.sn svg{width:100%;height:100%}
+.chips{display:flex;gap:.5rem;justify-content:center;align-items:center;margin-top:1rem;font-size:.8rem;flex-wrap:wrap}.chips span{padding:.3em .8em;border-radius:99px;background:var(--glass);border:1px solid var(--bd)}
+.an{fill:#cfe0ff;font:600 10px system-ui,sans-serif;text-anchor:middle}.gd{stroke:rgba(120,160,255,.16);fill:none}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,370px),1fr));gap:1.5rem;margin-top:3rem}
+.ac{padding:1.3rem;border-radius:26px;background:linear-gradient(160deg,color-mix(in srgb,var(--a) 28%,#0a1040),#0a0f34 70%);border:1px solid color-mix(in srgb,var(--a) 50%,transparent);box-shadow:0 24px 60px -28px var(--a)}
+.ac header{display:flex;gap:.9rem;align-items:center;margin-bottom:1rem}.ac header i{font-size:1.8rem;font-style:normal;width:3.2rem;height:3.2rem;display:grid;place-items:center;border-radius:16px;background:var(--a);flex:none;box-shadow:0 0 24px var(--a)}
+.ac h3{font-size:1.2rem;margin:0}.ac header p{font-size:.85rem;color:var(--mut);line-height:1.4}
+.tilt.in{transition:transform .2s ease-out,opacity .9s}
+.ap{display:flex;flex-direction:column;gap:.6rem;color:#eef2ff;font-size:.9rem}.ap>svg,.gv>svg{width:100%;height:auto;max-height:300px;border-radius:12px;background:rgba(5,8,30,.55);display:block}
+.ct{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}.ct button,.ct select,.ct input{border:1px solid var(--bd);background:rgba(255,255,255,.08);border-radius:99px;padding:.4em .9em;cursor:pointer;font-size:.85rem}.ct select option{color:#000}
+.ct button.on,.ct button.sel{background:var(--grad);border-color:transparent}.ct input[type=range]{padding:0;accent-color:#22d3ee;flex:1;min-width:90px}.ct input:not([type=range]){cursor:text;flex:1;min-width:120px}
+.ro{color:#67e8f9;font-size:.85rem;min-height:2.6em}.nt{color:#a5b0e0;font-size:.72rem}.gv{display:flex;flex-direction:column;gap:.6rem}
+.paper{background:#fffdf4;color:#1b2468;border-radius:12px;padding:.5rem .8rem;font-family:"Segoe Script","Bradley Hand","Comic Sans MS",cursive;background-image:repeating-linear-gradient(transparent 0 25px,#cbd7ff 25px 26px);background-position:0 30px}
+.paper h4{font-size:.95rem;line-height:26px;color:#3b4bd8}.nl{max-height:78px;overflow:auto}.nl p{line-height:26px;font-size:.9rem;color:#1b2468}.paper svg{width:100%;touch-action:none;display:block}mark{background:rgba(250,204,21,.6);color:inherit;padding:0 .15em}
+.tr{fill:rgba(139,92,246,.28);stroke:#a78bfa;stroke-width:2.5}.cp{fill:none;stroke:#22d3ee;stroke-dasharray:5 5}.pt{fill:#22d3ee;stroke:#fff;stroke-width:2;cursor:grab;touch-action:none}.ed{stroke:#22d3ee;stroke-width:2;fill:none;filter:drop-shadow(0 0 4px #22d3ee)}
+.el{font:700 8px system-ui;text-anchor:middle;fill:#0b1040}.cs{cursor:pointer;transition:filter .2s}.cs.sel{filter:drop-shadow(0 0 7px #fff)}
+.cd{background:rgba(5,8,30,.6);border-radius:12px;padding:.6rem 1rem;text-align:right;font:600 1.6rem "Space Grotesk",monospace;overflow:hidden;color:#67e8f9}.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-top:.5rem}
+.kp button{border:0;border-radius:12px;padding:.6rem;background:rgba(255,255,255,.1);color:#fff;cursor:pointer}.kp button:last-child{grid-column:1/-1;background:var(--grad)}
+.dev.big{aspect-ratio:auto;width:min(980px,100%);height:clamp(520px,80vh,680px);margin:2.5rem auto 0}.big .scr{overflow:auto}.big .pen{right:-3%;bottom:-6%}
+.sw{animation:sw .5s cubic-bezier(.2,.8,.2,1) both}.hm h4{padding:.6rem 1.4rem 0;font-size:1.3rem}.hm .sb{padding:.6rem 1.4rem 0}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,2vw,1.3rem);padding:1rem 1.4rem}
+.tile{border:0;border-radius:24px;padding:1.2rem .5rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:#fff;font-weight:600;cursor:pointer;background:linear-gradient(145deg,color-mix(in srgb,var(--a) 60%,#0b1040),#0b1040);box-shadow:0 14px 30px -12px var(--a),0 0 0 1px rgba(255,255,255,.14) inset;transition:transform .3s}
+.tile:hover{transform:translateY(-6px) scale(1.04)}.tile i{font-size:clamp(2rem,5vw,3.2rem);font-style:normal}
+.apw{display:flex;flex-direction:column;height:100%}.tbar{display:flex;align-items:center;gap:1rem;padding:.7rem 1rem;background:rgba(0,0,0,.35);border-bottom:1px solid var(--bd)}
+.hb{border:0;border-radius:99px;padding:.45em 1em;background:var(--grad);color:#fff;font-weight:700;cursor:pointer}.bd{flex:1;overflow:auto;padding:.8rem 1rem}
+.tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:5rem}.tl:before{content:"";position:absolute;top:-2px;left:5%;right:5%;height:4px;border-radius:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 1.8s}.tl.in:before{transform:none}
+.step{position:relative;padding:3.4rem 1.5rem 1.5rem;border-radius:22px;background:var(--acard);border:1px solid var(--abd);opacity:0;transform:translateY(30px);transition:.8s calc(var(--k)*.35s + .3s)}.tl.in .step{opacity:1;transform:none}
+.step span{position:absolute;top:-34px;left:1.5rem;display:grid;place-items:center;width:68px;height:68px;border-radius:50%;background:var(--grad);color:#fff;font:700 1.5rem "Space Grotesk",sans-serif;box-shadow:0 10px 30px -8px var(--v)}.step h3{font-size:1.3rem}.step p{margin-top:.5rem}
+.note{margin-top:3rem;padding:1.2rem 1.5rem;border-left:4px solid var(--v);background:var(--acard);border-radius:12px}
+.halo{position:relative;width:min(560px,90%);margin:0 auto 3.5rem}.halo:before{content:"";position:absolute;inset:-25%;background:conic-gradient(from 0deg,#3b82f6,#8b5cf6,#f472b6,#22d3ee,#3b82f6);filter:blur(70px);opacity:.45;animation:spin 14s linear infinite}
+.halo .dev{width:100%;animation:fl 7s ease-in-out infinite}.halo .pen{font-size:11px;right:-4%;bottom:-8%}.disc{display:block;margin-top:2.5rem;color:var(--mut);font-size:.82rem}
+@keyframes zi{from{opacity:0;letter-spacing:1em;filter:blur(14px)}to{opacity:1;letter-spacing:.3em;filter:none}}
+@keyframes ln{to{width:min(60vw,520px)}}@keyframes dr{to{transform:translate(8vw,6vh) scale(1.2)}}@keyframes tw{50%{opacity:.9;transform:translateY(-24px)}}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}@keyframes dIn{from{opacity:0;transform:translateY(90px) rotateY(-40deg) scale(.8)}to{opacity:1;transform:none}}
+@keyframes fl{50%{transform:translateY(-14px)}}@keyframes pn{50%{transform:rotate(24deg) translateY(-12px)}}@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes xf{0%,40%{opacity:1;transform:scale(1)}50%,90%{opacity:0;transform:scale(.4) translateY(-8px)}100%{opacity:1}}
+@keyframes sc{0%,28%{opacity:1;transform:scale(1)}33%,95%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:scale(1)}}
+@keyframes sw{from{opacity:0;transform:scale(.94) translateY(14px)}to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s var(--d,0s),transform .9s var(--d,0s) cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+@media(max-width:900px){nav{flex-wrap:wrap}.ln{order:3;flex-basis:100%;margin:0}.hero,.bn,.tl{grid-template-columns:1fr}.bn .tx{order:0!important}.fw{display:none}.hero{text-align:center}.hero .e{justify-content:center}.hero .sub{text-align:center!important}.tg{grid-template-columns:repeat(2,1fr)}.tl{gap:4.5rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero .e,.hero .dev,.rv{opacity:1!important;transform:none!important}#in,.sp{display:none}.sn:nth-child(n+2),.mx i{display:none}}
+</style>
+</head>
+<body>
+<div id="in"><b>NOVA STUDENT</b></div>
+<nav><a class="lg" href="#top"><i class="lgi"></i>NOVA STUDENT</a>
+<div class="ln"><a href="#concept">The Concept</a><a href="#benefits">Benefits</a><a href="#apps">Learning Applications</a><a href="#demo">Interactive Demo</a><a href="#vision">Our Vision</a></div>
+<button class="btn" data-go="demo">Explore the Tablet</button></nav>
+
+<header class="hero" id="top">
+<div class="orb" style="background:#3b82f6;width:40vw;height:40vw;left:-10vw;top:-8vw"></div><div class="orb" style="background:#8b5cf6;width:34vw;height:34vw;right:-8vw;bottom:-6vw;animation-delay:-5s"></div>
+<div class="hc"><span class="tag e">A New Vision for Education</span>
+<h1 class="e" style="--d:.15s;margin:1.2rem 0">One Tablet. Every Subject. <span class="gt">Endless Possibilities.</span></h1>
+<p class="sub e" style="--d:.3s;margin:0 0 2rem;text-align:left">What if every student had all the tools they needed to learn, create, experiment, and succeed — all in one device?</p>
+<div class="e" style="--d:.45s;display:flex;gap:1rem;flex-wrap:wrap"><button class="btn" data-go="benefits">Explore the Idea</button><button class="btn gh" data-go="demo">See It in Action</button></div></div>
+<div class="stage"><div class="rot">
+<div class="fl"><div class="dev"><div class="scr hs"><div class="sb"><span>9:41</span><b>NOVA</b><span>100% ▮</span></div>
+<div class="hg"><div><small>Good morning</small><h5>My Learning Space</h5><div class="ig"></div><div class="fo"><span style="--a:#3b82f6">Maths</span><span style="--a:#8b5cf6">Science</span><span style="--a:#f472b6">Art</span></div></div>
+<div class="hr"><div class="paper"><svg viewBox="0 0 120 40"><path d="M4 28q10-24 20-4t20-4 20 2 20-6" fill="none" stroke="#2b3bdb" stroke-width="2" stroke-linecap="round"/><path d="M4 36h60" stroke="#facc15" stroke-width="5" opacity=".6"/></svg></div>
+<svg class="td" viewBox="0 0 120 70"><g fill="none" stroke="#67e8f9" stroke-width="1.5"><rect x="20" y="14" width="60" height="34"/><circle cx="50" cy="31" r="9"/><path d="M20 58h60M20 54v8M80 54v8" stroke="#facc15"/></g></svg></div></div></div></div></div>
+<div class="fw" style="left:-9%;top:2%;--t:7s"><svg viewBox="0 0 80 60" width="86"><path d="M10 50L70 50L38 8Z" fill="rgba(139,92,246,.35)" stroke="#a78bfa" stroke-width="2"/><circle cx="10" cy="50" r="40" fill="none" stroke="#22d3ee" stroke-dasharray="3 3"/></svg><br>Geometry</div>
+<div class="fw" style="right:-7%;top:6%;--t:8s"><svg viewBox="0 0 80 60" width="86"><g stroke="#cfe0ff" stroke-width="2"><path d="M40 30L18 14M40 30L62 14M40 30V54"/></g><circle cx="40" cy="30" r="11" fill="#c4b5fd"/><circle cx="18" cy="14" r="7" fill="#fff"/><circle cx="62" cy="14" r="7" fill="#fff"/><circle cx="40" cy="54" r="7" fill="#fff"/></svg><br>Molecule</div>
+<div class="fw" style="left:-6%;bottom:4%;--t:9s">📓 Notebook<br><small>Photosynthesis…</small></div>
+<div class="pen"></div></div></div>
+</header>
+
+<section id="concept" class="ba"><div class="st">
+<span class="tag">The Concept</span><h2>One Device. Less Clutter. More Possibilities.</h2>
+<p class="sub">Students often need different tools for different subjects: notebooks, rulers, geometry equipment, drawing tools, calculators, textbooks, and specialized equipment. This concept brings many of them together in one educational device. Keep scrolling to watch the desk become a tablet.</p>
+<div class="bx"><span class="lab b">BEFORE · A DESK FULL OF TOOLS</span><span class="lab a">AFTER · ONE TABLET, ONE PEN</span>
+<span class="sup" data-d="-.42,-.3,-20">📓</span><span class="sup" data-d="-.3,.32,14">📚</span><span class="sup" data-d="-.05,-.38,-8">📏</span><span class="sup" data-d=".12,.3,30">✏️</span><span class="sup" data-d=".32,-.3,12">🧮</span><span class="sup" data-d=".42,.28,-25">📐</span><span class="sup" data-d="-.18,.05,40">🖊️</span><span class="sup" data-d=".22,0,-15">📄</span>
+<div class="tb"><div class="dev"><div class="scr"><div class="ig"></div></div></div><div class="pen"></div></div></div></div></section>
+
+<section id="benefits" class="sec alt"><div class="wrap c"><span class="tag rv">Three Main Benefits</span><h2 class="rv">Why One Tablet Could Change School Days</h2></div><div class="wrap">
+<article class="bn"><div class="tx rv"><span class="num gt">01</span><span class="tag">Practicality</span><h3>Everything You Need. One Device.</h3><p>Students can access a wide range of educational tools from a single compact device. Notes, textbooks, drawing applications, mathematical tools, and engineering software can all be available in one place. This reduces the need to carry multiple materials and keeps schoolwork organized.</p></div>
+<div class="v tilt rv"><div class="g4"><div class="mx"><i>📓</i><b>📝</b><small>Digital notebooks</small></div><div class="mx"><i>📏</i><b>📐</b><small>Geometry tools</small></div><div class="mx"><i>✏️</i><b>🎨</b><small>Drawing tools</small></div><div class="mx"><i>📚</i><b>📖</b><small>Textbook annotation</small></div></div></div></article>
+<article class="bn"><div class="tx rv"><span class="num gt">02</span><span class="tag">Equality and Affordability</span><h3>Better Access. Fairer Opportunities.</h3><p>If provided free of charge or at an affordable price, a standardized educational tablet could help reduce differences in access to learning materials. Students would have access to the same essential digital tools regardless of their family’s financial situation.</p><p>A durable device could also reduce the need to repeatedly purchase certain school supplies. Schools and families could potentially save money over time, depending on device costs, maintenance, software, and replacement needs.</p></div>
+<div class="v tilt rv"><div class="sr"><div class="av"><span>👩🏻‍🎓</span><em>📱</em></div><div class="av"><span>👨🏿‍🎓</span><em>📱</em></div><div class="av"><span>🧑🏽‍🎓</span><em>📱</em></div><div class="av"><span>👩🏼‍🎓</span><em>📱</em></div><div class="av"><span>🧕🏾</span><em>📱</em></div></div>
+<div class="cmp"><div><div class="col"><i></i><i></i><i></i><i></i><i></i></div><small>Supplies bought again and again</small></div><div><div class="col"><i class="s"></i><i class="d"></i></div><small>One shared toolkit + upkeep</small></div></div><small class="cap">Conceptual illustration only. It shows no real prices or statistics.</small></div></article>
+<article class="bn"><div class="tx rv"><span class="num gt">03</span><span class="tag">Learning Performance</span><h3>Less Time Searching. More Time Understanding.</h3><p>Having specialized educational tools available with a single tap could make certain lessons more practical and efficient. This could be especially useful for engineering, geometry, mathematics, and other technical subjects where students need precise tools.</p><p>In science classes, interactive applications could allow students to explore chemical reactions, biological processes, and scientific models through digital simulations. By making these tools easier to access, the concept could help students spend more time exploring ideas and solving problems.</p></div>
+<div class="v tilt rv"><div class="dev sm"><div class="scr scenes"></div></div><div class="chips"><span>Geometry</span>→<span>Technical drawing</span>→<span>Molecular model</span></div><small class="cap">A potential benefit, not a guaranteed result.</small></div></article>
+</div></section>
+
+<section id="apps" class="sec"><div class="wrap c"><span class="tag rv">Learning Applications</span><h2 class="rv">A Different Tool for Every Idea.</h2><p class="sub rv">Six apps, each one live. Drag, type, draw, and run them right here.</p></div><div class="wrap"><div class="gal" id="gal"></div></div></section>
+
+<section id="demo" class="sec"><div class="wrap c"><span class="tag rv">Interactive Demo</span><h2 class="rv">Tap an App. It Really Works.</h2><p class="sub rv">This is a working tablet mockup. Open any app, use its controls, then press Home to switch.</p>
+<div class="dev big rv"><div class="scr" id="scr"></div><div class="pen"></div></div></div></section>
+
+<section id="how" class="sec alt"><div class="wrap c"><span class="tag rv">How the System Could Work</span><h2 class="rv">Designed Around the Student.</h2>
+<div class="tl rv" style="text-align:left"><div class="step"><span>01</span><h3>One Device for Every Student</h3><p>Each student receives a standardized educational tablet and compatible digital pen.</p></div><div class="step"><span>02</span><h3>Essential Learning Tools Included</h3><p>School-approved learning applications are available in one organized environment.</p></div><div class="step"><span>03</span><h3>Learn, Create, and Experiment</h3><p>Students use the tablet for classroom notes, homework, creative projects, technical designs, and educational simulations.</p></div></div>
+<p class="note rv" style="text-align:left">Real-world implementation would require suitable devices, software licensing, maintenance, accessibility support, and policies for student privacy.</p></div></section>
+
+<section id="vision" class="sec"><div class="wrap c"><span class="tag rv">Our Vision</span>
+<div class="halo rv" style="margin-top:3rem"><div class="dev"><div class="scr scenes"></div></div><div class="pen"></div></div>
+<h2 class="rv">Education Should Give Every Student the Tools to Explore.</h2>
+<p class="sub rv" style="margin-bottom:2rem">NOVA Student imagines a future in which essential learning tools are more accessible, schoolwork is easier to organize, and students can explore ideas in new ways — all from one device.</p>
+<button class="btn rv" data-go="demo">Explore the Experience</button>
+<small class="disc rv">NOVA Student is a conceptual educational technology proposal created to explore possible improvements in learning.</small></div></section>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],R=matchMedia('(prefers-reduced-motion:reduce)').matches,cl=(v,a,b)=>Math.min(b,Math.max(a,v)),NS='http://www.w3.org/2000/svg';
+const G=(w,h,s)=>{let d='';for(let x=0;x<=w;x+=s)d+=`M${x} 0V${h}`;for(let y=0;y<=h;y+=s)d+=`M0 ${y}H${w}`;return d};
+const svp=(s,e)=>{const p=s.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(s.getScreenCTM().inverse())};
+const pick=(bs,b)=>bs.forEach(x=>x.classList.toggle('on',x===b));
+
+/* ---------- Apps ---------- */
+const notes=el=>{
+ el.innerHTML=`<div class="ap"><div class="paper"><h4>Biology · Chapter 4</h4><div class="nl"><p><mark>Cells</mark> are the basic unit of life.</p><p><u>Mitochondria</u> release energy.</p></div><svg viewBox="0 0 300 80"><g fill="none" stroke="#2b3bdb" stroke-width="2.5" stroke-linecap="round"><path d="M10 58q30-40 55-4t55-6"/><circle cx="225" cy="40" r="24"/><path d="M160 40h36m-8-8 8 8-8 8"/></g></svg></div><div class="ct"><input maxlength="48" placeholder="Type a note, press Enter"><button>Add</button><button class="on">✏️ Pen</button><button>🖍 Marker</button><button>Clear</button></div></div>`;
+ const inp=el.querySelector('input'),[add,pen,mk,clr]=el.querySelectorAll('button'),nl=el.querySelector('.nl'),sv=el.querySelector('svg');let m=0,cur=null;
+ const put=()=>{const t=inp.value.trim();if(!t)return;const p=document.createElement('p');p.textContent=t;nl.append(p);inp.value='';nl.scrollTop=nl.scrollHeight};
+ add.onclick=put;inp.onkeydown=e=>{if(e.key==='Enter')put()};
+ pen.onclick=()=>{m=0;pick([pen,mk],pen)};mk.onclick=()=>{m=1;pick([pen,mk],mk)};
+ clr.onclick=()=>sv.querySelectorAll('.us').forEach(p=>p.remove());
+ sv.onpointerdown=e=>{sv.setPointerCapture(e.pointerId);const q=svp(sv,e);cur=document.createElementNS(NS,'path');cur.setAttribute('class','us');cur.setAttribute('d',`M${q.x} ${q.y}`);cur.setAttribute('fill','none');cur.setAttribute('stroke-linecap','round');cur.setAttribute('stroke-linejoin','round');cur.setAttribute('stroke',m?'rgba(250,204,21,.55)':'#2b3bdb');cur.setAttribute('stroke-width',m?12:2.5);sv.append(cur)};
+ sv.onpointermove=e=>{if(cur){const q=svp(sv,e);cur.setAttribute('d',cur.getAttribute('d')+`L${q.x} ${q.y}`)}};
+ sv.onpointerup=sv.onpointercancel=()=>{cur=null};
+};
+
+const geo=el=>{
+ const P=[[70,150],[230,150],[140,45]],tk=Array.from({length:29},(_,i)=>`M${10+i*10} 183v${i%5?5:9}`).join('');
+ el.innerHTML=`<div class="ap"><svg viewBox="0 0 300 200"><path d="${G(300,200,20)}" class="gd"/><circle class="cp"/><path class="tr"/><rect x="10" y="183" width="280" height="14" rx="3" fill="rgba(250,204,21,.85)"/><path d="${tk}" stroke="#7a5b00"/>${[0,1,2].map(()=>'<text class="an"></text><circle class="pt" r="10"></circle>').join('')}</svg><p class="ro"></p><small class="nt">Drag the three cyan points. The dashed circle is a compass set to side AB.</small></div>`;
+ const s=el.querySelector('svg'),pts=[...s.querySelectorAll('.pt')],ans=[...s.querySelectorAll('.an')],ro=el.querySelector('.ro'),cp=s.querySelector('.cp'),D=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+ const up=()=>{const c=[0,1].map(k=>(P[0][k]+P[1][k]+P[2][k])/3);
+  s.querySelector('.tr').setAttribute('d',`M${P.join('L')}Z`);cp.setAttribute('cx',P[0][0]);cp.setAttribute('cy',P[0][1]);cp.setAttribute('r',D(P[0],P[1]));
+  const an=P.map((p,i)=>{const a=P[(i+1)%3],b=P[(i+2)%3];return Math.acos(cl(((a[0]-p[0])*(b[0]-p[0])+(a[1]-p[1])*(b[1]-p[1]))/(D(p,a)*D(p,b)),-1,1))*180/Math.PI});
+  P.forEach((p,i)=>{pts[i].setAttribute('cx',p[0]);pts[i].setAttribute('cy',p[1]);ans[i].setAttribute('x',p[0]+(c[0]-p[0])*.32);ans[i].setAttribute('y',p[1]+(c[1]-p[1])*.32+3);ans[i].textContent=an[i].toFixed(0)+'°'});
+  const ar=Math.abs((P[1][0]-P[0][0])*(P[2][1]-P[0][1])-(P[2][0]-P[0][0])*(P[1][1]-P[0][1]))/2;
+  ro.textContent=`∠A ${an[0].toFixed(1)}° · ∠B ${an[1].toFixed(1)}° · ∠C ${an[2].toFixed(1)}° · sum ${(an[0]+an[1]+an[2]).toFixed(0)}° · AB ${(D(P[0],P[1])/20).toFixed(1)} cm · area ${(ar/400).toFixed(1)} cm²`};
+ pts.forEach((c,i)=>{c.onpointerdown=e=>{c.setPointerCapture(e.pointerId);c.onpointermove=ev=>{const q=svp(s,ev);P[i]=[cl(q.x,10,290),cl(q.y,10,170)];up()}};c.onpointerup=()=>{c.onpointermove=null}});up();
+};
+
+const M={Cube:{v:[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]],e:[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]]},Pyramid:{v:[[-1,1,-1],[1,1,-1],[1,1,1],[-1,1,1],[0,-1.2,0]],e:[[0,1],[1,2],[2,3],[3,0],[0,4],[1,4],[2,4],[3,4]]},Prism:{v:[[-1,1,-1],[1,1,-1],[0,1,1.2],[-1,-1,-1],[1,-1,-1],[0,-1,1.2]],e:[[0,1],[1,2],[2,0],[3,4],[4,5],[5,3],[0,3],[1,4],[2,5]]}};
+const eng=el=>{
+ const ks=Object.keys(M);let m='Cube',ax=.55,ay=.7,spin=!R,drag=0,lx=0,ly=0;
+ el.innerHTML=`<div class="ap"><svg viewBox="0 0 300 200"><path d="${G(300,200,10)}" class="gd"/><path class="ed"/><path d="M60 188h180M60 182v12M240 182v12" stroke="#facc15" fill="none"/><text x="150" y="180" class="an">40 mm</text><text x="10" y="16" class="an" style="text-anchor:start">TOP · 1:1 · drag to rotate</text></svg><div class="ct">${ks.map((k,i)=>`<button${i?'':' class="on"'}>${k}</button>`).join('')}<button>⟳ Spin</button></div><small class="nt">Concept demo only. It does not claim professional CAD software is integrated.</small></div>`;
+ const sv=el.querySelector('svg'),ed=el.querySelector('.ed'),bs=[...el.querySelectorAll('button')],ms=bs.slice(0,3);
+ const draw=()=>{const{v,e}=M[m],cx=Math.cos(ax),sx=Math.sin(ax),cy=Math.cos(ay),sy=Math.sin(ay),q=v.map(([x,y,z])=>{const X=x*cy+z*sy,Z=-x*sy+z*cy,Y=y*cx-Z*sx,W=y*sx+Z*cx,k=36/(1-W*.1);return[150+X*k,96+Y*k]});ed.setAttribute('d',e.map(([a,b])=>`M${q[a]}L${q[b]}`).join(''))};
+ ms.forEach((b,i)=>{b.onclick=()=>{m=ks[i];pick(ms,b);draw()}});bs[3].onclick=()=>{spin=!spin};
+ sv.style.touchAction='none';sv.onpointerdown=e=>{drag=1;lx=e.clientX;ly=e.clientY;sv.setPointerCapture(e.pointerId)};
+ sv.onpointermove=e=>{if(drag){ay+=(e.clientX-lx)*.012;ax+=(e.clientY-ly)*.012;lx=e.clientX;ly=e.clientY;draw()}};
+ sv.onpointerup=sv.onpointercancel=()=>{drag=0};
+ const tick=()=>{if(!el.isConnected)return;if(spin&&!drag){ay+=.012;draw()}requestAnimationFrame(tick)};draw();tick();
+};
+
+const E={H:[7,'#e8ecff'],O:[11,'#f87171'],C:[10,'#94a3b8'],Na:[12,'#a78bfa'],Cl:[12,'#4ade80']};
+const RX=[
+ {n:'2H₂ + O₂ → 2H₂O',r:[['H','H'],['H','H'],['O','O']],p:[['O','H','H'],['O','H','H']],pr:'Product: 2 H₂O (water).',t:'Hydrogen and oxygen atoms rearrange into water. Atoms are regrouped, never created or destroyed.'},
+ {n:'CH₄ + 2O₂ → CO₂ + 2H₂O',r:[['C','H','H','H','H'],['O','O'],['O','O']],p:[['C','O','O'],['O','H','H'],['O','H','H']],pr:'Products: CO₂ + 2 H₂O.',t:'Methane burns in oxygen. The same atoms regroup into carbon dioxide and water, releasing heat.'},
+ {n:'HCl + NaOH → NaCl + H₂O',r:[['Cl','H'],['O','Na','H']],p:[['Na','Cl'],['O','H','H']],pr:'Products: NaCl (table salt) + H₂O.',t:'An acid and a base neutralize each other, forming a salt and water.'}];
+const SL=[[[50,60],[50,130],[115,95]],[[190,60],[190,130],[255,95]]];
+const lay=(ms,sl)=>ms.flatMap((m,k)=>m.map((e,i)=>{const n=m.length-1,a=i?(m[0]==='O'&&n===2&&m[1]==='H'?[38,142][i-1]:360/n*(i-1))*Math.PI/180:0,r=i?(E[m[0]][0]+E[e][0])*.85:0;return{e,x:sl[k][0]+Math.cos(a)*r,y:sl[k][1]+Math.sin(a)*r}}));
+const chem=el=>{
+ let raf,rx,A0,map,gs;
+ el.innerHTML=`<div class="ap"><div class="ct"><select>${RX.map((r,i)=>`<option value="${i}">${r.n}</option>`).join('')}</select><button class="on">Run Simulation</button></div><svg viewBox="0 0 300 180"><text x="50" y="16" class="an">REACTANTS</text><text x="222" y="16" class="an">PRODUCTS</text><text x="152" y="102" class="an" style="font-size:22px">→</text><g class="at"></g></svg><p class="ro"></p><small class="nt">Educational model: particle motion is illustrative, not a chemical calculation.</small></div>`;
+ const sel=el.querySelector('select'),go=el.querySelector('button'),at=el.querySelector('.at'),out=el.querySelector('.ro');
+ const pl=(s,now)=>gs.forEach((g,i)=>{const a=A0[i],b=map[i],j=now?3:0;g.setAttribute('transform',`translate(${a.x+(b.x-a.x)*s+Math.sin(now/120+i*2)*j} ${a.y+(b.y-a.y)*s+Math.cos(now/140+i*3)*j})`)});
+ const set=()=>{cancelAnimationFrame(raf);rx=RX[sel.value];A0=lay(rx.r,SL[0]);const A1=lay(rx.p,SL[1]),u={};map=A0.map(a=>{u[a.e]=(u[a.e]??-1)+1;return A1.filter(b=>b.e===a.e)[u[a.e]]});
+  at.innerHTML=A0.map(a=>`<g><circle r="${E[a.e][0]}" fill="${E[a.e][1]}"/><text y="3" class="el">${a.e}</text></g>`).join('');gs=[...at.children];pl(0,0);out.textContent='Press “Run Simulation” to watch the atoms rearrange.'};
+ go.onclick=()=>{cancelAnimationFrame(raf);const t0=performance.now(),Dn=R?300:4200;out.textContent='Running the educational model…';const f=now=>{const t=cl((now-t0)/Dn,0,1),k=cl((t-.3)/.4,0,1);pl(k*k*(3-2*k),t<1?now:0);if(t<1)raf=requestAnimationFrame(f);else out.textContent=`${rx.pr} ${rx.t}`};raf=requestAnimationFrame(f)};
+ sel.onchange=set;set();
+};
+
+const BIO={Nucleus:'The control center. It stores DNA and directs the cell’s activities.',Mitochondrion:'The powerhouse. It converts nutrients into ATP, the cell’s usable energy.','Golgi body':'The post office. It sorts, packages, and ships proteins.','Cell membrane':'The gatekeeper. It controls what enters and leaves the cell.'};
+const bio=el=>{
+ const dots=R?'':[0,1,2].map(i=>`<circle r="3.5" fill="#facc15"><animateMotion dur="3s" begin="${i}s" repeatCount="indefinite" path="M228 70Q200 50 178 82"/></circle>`).join('');
+ el.innerHTML=`<div class="ap"><svg viewBox="0 0 300 200"><ellipse class="cs" data-k="Cell membrane" cx="150" cy="100" rx="135" ry="88" fill="rgba(244,114,182,.12)" stroke="#f472b6" stroke-width="5" style="pointer-events:stroke"/><g class="cs" data-k="Nucleus"><circle cx="140" cy="95" r="34" fill="rgba(139,92,246,.5)" stroke="#a78bfa" stroke-width="3"/><circle cx="148" cy="90" r="11" fill="#c4b5fd"/></g><g class="cs" data-k="Mitochondrion"><ellipse cx="228" cy="70" rx="24" ry="12" transform="rotate(-25 228 70)" fill="rgba(251,146,60,.5)" stroke="#fb923c" stroke-width="3"/><path d="M212 74q8-12 12-2t12-8" stroke="#fb923c" fill="none"/></g><g class="cs" data-k="Golgi body"><path d="M60 140q30-14 60 0M64 152q26-10 52 0M68 164q22-8 44 0" stroke="#22d3ee" stroke-width="5" fill="none" stroke-linecap="round"/></g>${dots}</svg><div class="ct">${Object.keys(BIO).map(k=>`<button data-k="${k}">${k}</button>`).join('')}</div><p class="ro">Select a structure to learn what it does. The yellow dots are ATP energy leaving the mitochondrion.</p></div>`;
+ const ro=el.querySelector('.ro'),ns=[...el.querySelectorAll('[data-k]')];
+ ns.forEach(n=>{n.onclick=()=>{ns.forEach(x=>x.classList.toggle('sel',x.dataset.k===n.dataset.k));ro.innerHTML=`<b>${n.dataset.k}.</b> ${BIO[n.dataset.k]}`}});
+};
+
+const FN=[['a·x',(a,x)=>a*x],['a·x²',(a,x)=>a*x*x],['a·sin(x)',(a,x)=>a*Math.sin(x)]];
+const math=el=>{
+ let f=2,a=2,ex='';
+ el.innerHTML=`<div class="ap"><div class="ct"><button class="on">Graph</button><button>Calculator</button></div><div class="gv"><svg viewBox="0 0 300 200"><path d="${G(300,200,25)}" class="gd"/><path d="M0 100H300M150 0V200" stroke="#9fb4ff" fill="none"/><path class="cv" fill="none" stroke="#22d3ee" stroke-width="3"/></svg><div class="ct"><select>${FN.map((q,i)=>`<option value="${i}"${i===2?' selected':''}>y = ${q[0]}</option>`).join('')}</select><input type="range" min="-3" max="3" step=".05" value="2" aria-label="Parameter a"><span class="ro"></span></div></div><div class="cc" hidden><div class="cd">0</div><div class="kp">${['C','÷','×','−','7','8','9','+','4','5','6','.','1','2','3','0','='].map(k=>`<button>${k}</button>`).join('')}</div></div></div>`;
+ const tabs=[...el.querySelector('.ct').children],gv=el.querySelector('.gv'),cc=el.querySelector('.cc'),cv=el.querySelector('.cv'),ro=el.querySelector('.ro'),cd=el.querySelector('.cd');
+ const plot=()=>{let d='';for(let i=0;i<=120;i++){const x=-6+i*.1;d+=`${i?'L':'M'}${150+x*25} ${100-cl(FN[f][1](a,x),-6,6)*25}`}cv.setAttribute('d',d);ro.textContent=`y = ${FN[f][0].replace('a',a.toFixed(2))}`};
+ el.querySelector('input').oninput=e=>{a=+e.target.value;plot()};el.querySelector('select').onchange=e=>{f=+e.target.value;plot()};
+ tabs[0].onclick=()=>{gv.hidden=false;cc.hidden=true;pick(tabs,tabs[0])};tabs[1].onclick=()=>{gv.hidden=true;cc.hidden=false;pick(tabs,tabs[1])};
+ el.querySelector('.kp').onclick=e=>{if(e.target.tagName!=='BUTTON')return;const k=e.target.textContent;if(/[A-Za-z]/.test(ex))ex='';
+  if(k==='C')ex='';else if(k==='='){try{const s=ex.replace(/÷/g,'/').replace(/×/g,'*').replace(/−/g,'-').replace(/\b0+(?=\d)/g,'');if(!/^[\d+\-*/. ]+$/.test(s))throw 0;ex=String(+Function('"use strict";return '+s)().toFixed(6))}catch(_){ex='Error'}}else ex+=k;cd.textContent=ex||'0'};
+ plot();
+};
+
+const A={
+ notes:{n:'Digital Notebook',s:'Notes',i:'📝',c:'#3b82f6',f:notes,d:'Handwritten notes, highlighting, and hand-drawn diagrams on organized pages.'},
+ geo:{n:'Geometry Studio',s:'Geometry',i:'📐',c:'#22d3ee',f:geo,d:'Drag the vertices and watch angles, area, and the compass circle update.'},
+ eng:{n:'Engineering & Technical Drawing',s:'Engineering',i:'⚙️',c:'#8b5cf6',f:eng,d:'Rotate a 3D-style model on a drawing grid with dimension lines.'},
+ chem:{n:'Chemistry Lab',s:'Chemistry',i:'🧪',c:'#f472b6',f:chem,d:'Run a predefined reaction as a simplified educational model.'},
+ bio:{n:'Biology Explorer',s:'Biology',i:'🧬',c:'#4ade80',f:bio,d:'Tap cell structures to highlight them and read what they do.'},
+ math:{n:'Mathematics & Graphs',s:'Mathematics',i:'📈',c:'#facc15',f:math,d:'Change a parameter with a slider and watch the graph redraw instantly.'}};
+
+/* ---------- Scenes, gallery, tablet ---------- */
+const SC=`<div class="sn"><svg viewBox="0 0 300 200"><path d="M60 155L240 155L150 45Z" fill="rgba(139,92,246,.3)" stroke="#a78bfa" stroke-width="3"/><circle cx="60" cy="155" r="90" fill="none" stroke="#22d3ee" stroke-dasharray="6 6"/><path d="M90 155A30 30 0 0 0 82 134" stroke="#facc15" fill="none" stroke-width="2"/><text x="150" y="186" class="an">Geometry construction</text></svg></div><div class="sn"><svg viewBox="0 0 300 200"><g fill="none" stroke-width="2.5"><rect x="70" y="40" width="160" height="90" stroke="#67e8f9"/><circle cx="150" cy="85" r="22" stroke="#67e8f9"/><path d="M70 150h160M70 144v12M230 144v12M246 40v90M240 40h12M240 130h12" stroke="#facc15" stroke-width="1.5"/><path d="M150 30v110M60 85h180" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="8 3 2 3"/></g><text x="150" y="168" class="an">160 mm</text><text x="150" y="190" class="an">Technical drawing</text></svg></div><div class="sn"><svg viewBox="0 0 300 200"><g stroke="#cfe0ff" stroke-width="4"><path d="M150 90L108 55M150 90L192 55M150 90L108 125M150 90L192 125"/></g><circle cx="150" cy="90" r="22" fill="#94a3b8"/><g fill="#fff"><circle cx="108" cy="55" r="12"/><circle cx="192" cy="55" r="12"/><circle cx="108" cy="125" r="12"/><circle cx="192" cy="125" r="12"/></g><text x="150" y="168" class="an">Molecular model (CH₄)</text><text x="150" y="190" class="an">Simplified 2D view</text></svg></div>`;
+$$('.scenes').forEach(e=>e.innerHTML=SC);
+const ico=Object.values(A).map((a,i)=>`<i style="--a:${a.c};--i:${i}">${a.i}</i>`).join('');$$('.ig').forEach(e=>e.innerHTML=ico);
+$('#gal').innerHTML=Object.entries(A).map(([k,a],j)=>`<article class="ac tilt rv" style="--a:${a.c};--d:${(j%3)*.1}s"><header><i>${a.i}</i><div><h3>${a.n}</h3><p>${a.d}</p></div></header><div class="am" data-k="${k}"></div></article>`).join('');
+$$('.am').forEach(m=>A[m.dataset.k].f(m));
+const scr=$('#scr');
+const home=()=>{scr.innerHTML=`<div class="hm sw"><div class="sb"><span>9:41</span><b>NOVA</b><span>100% ▮</span></div><h4>Choose an app</h4><div class="tg">${Object.entries(A).map(([k,a])=>`<button class="tile" data-k="${k}" style="--a:${a.c}"><i>${a.i}</i>${a.s}</button>`).join('')}</div></div>`;scr.querySelectorAll('.tile').forEach(b=>{b.onclick=()=>openApp(b.dataset.k)})};
+const openApp=k=>{const a=A[k];scr.innerHTML=`<div class="apw sw"><div class="tbar"><button class="hb">⌂ Home</button><b>${a.i} ${a.n}</b></div><div class="bd"></div></div>`;a.f(scr.querySelector('.bd'));scr.querySelector('.hb').onclick=home};
+home();
+
+/* ---------- Motion & navigation ---------- */
+const nv=$('nav'),nh=()=>document.documentElement.style.setProperty('--nh',nv.offsetHeight+'px');nh();addEventListener('resize',nh);
+$$('[data-go],nav a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.go||a.getAttribute('href').slice(1);document.getElementById(id).scrollIntoView({behavior:R?'auto':'smooth'})}));
+setTimeout(()=>document.body.classList.add('ready'),R?0:2200);$('#in').onclick=()=>document.body.classList.add('ready');
+const hero=$('#top'),rot=$('.rot');
+if(!R){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();rot.style.setProperty('--ry',-10+((e.clientX-r.left)/r.width-.5)*16);rot.style.setProperty('--rx',5-((e.clientY-r.top)/r.height-.5)*12)});
+ hero.addEventListener('pointerleave',()=>{rot.style.setProperty('--ry',-10);rot.style.setProperty('--rx',5)});
+ for(let i=0;i<28;i++){const d=document.createElement('i');d.className='sp';d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--t:${3+Math.random()*5}s;animation-delay:-${Math.random()*6}s`;hero.append(d)}}
+const ba=$('#concept'),st=ba.firstElementChild,sups=$$('.sup'),bx=$('.bx');
+const sc=()=>{const r=ba.getBoundingClientRect(),p=cl(-r.top/(r.height-innerHeight),0,1),t=cl((p-.1)/.55,0,1),W=bx.offsetWidth,H=bx.offsetHeight;st.style.setProperty('--p',p);
+ sups.forEach(e=>{const[x,y,d]=e.dataset.d.split(',');e.style.transform=`translate(-50%,-50%) translate(${x*W*(1-t)}px,${y*H*(1-t)}px) rotate(${d*(1-t)}deg) scale(${1.1-t})`;e.style.opacity=cl(1-(t-.75)*4,0,1)})};
+addEventListener('scroll',sc,{passive:true});addEventListener('resize',sc);sc();
+$$('.col,.sr,.tl').forEach(p=>[...p.children].forEach((c,i)=>c.style.setProperty('--k',i)));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});$$('.rv').forEach(e=>io.observe(e));
+$$('.tilt').forEach(c=>{c.addEventListener('pointermove',e=>{if(R||e.pointerType==='touch')return;if(e.target.closest('.am,.dev')){c.style.transform='';return}const r=c.getBoundingClientRect();c.style.transform=`perspective(900px) rotateY(${((e.clientX-r.left)/r.width-.5)*10}deg) rotateX(${(.5-(e.clientY-r.top)/r.height)*10}deg)`});c.addEventListener('pointerleave',()=>{c.style.transform=''})});
+</script>
+</body>
+</html>
